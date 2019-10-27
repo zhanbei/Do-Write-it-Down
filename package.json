@@ -1,0 +1,14 @@
+{
+  "name": "do-write-it-down",
+  "version": "0.8.0",
+  "description": "A workspace for unknown things to be written down.",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc src/* --outDir ts-build && npm run generate-md",
+    "generate-md": "node ts-build/generate-markdown-document.js > assets/statistics/repositories.md",
+    "generate-codes": "node ts-build/generate-groups-of-repositories.js > src/lib-groups-of-repositories.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fisher",
+  "license": "ISC"
+}
