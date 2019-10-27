@@ -4,8 +4,11 @@
   "description": "A workspace for unknown things to be written down.",
   "main": "index.js",
   "scripts": {
-    "build": "bash assets/statistics/update-repos.sh #&& npm run generate-md",
-    "start": "tsc src/* --outDir ts-build && npm run generate-md",
+    "build": "npm run update-resources && npm run build-ts && npm run generate-md",
+    "build-ts": "tsc src/* --outDir ts-build",
+    "build-all": "npm run update-resources && npm run build-ts && npm run generate-codes && npm run generate-md",
+    "start": "npm run build-ts && npm run generate-md",
+    "update-resources": "bash assets/statistics/update-repos.sh",
     "generate-md": "node ts-build/generate-markdown-document.js > assets/statistics/repositories.md",
     "generate-codes": "node ts-build/generate-groups-of-repositories.js > src/lib-groups-of-repositories.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -14,4 +14,4 @@ const defs =
 	).join('\n') + '\n' +
 	`export const publicRepositoriesInGroups = {\n${groups.map(group => group.name.includes(' ') ? '' : '\t' + group.name.toLowerCase() + ',\n').join('')}};`;
 
-console.error(defs);
+console.log(defs);
